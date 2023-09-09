@@ -5,7 +5,7 @@ let stepContainer = document.querySelectorAll(`.step`),
   backButton = document.querySelectorAll(`.back-button`),
   forms = document.forms,
   summaryServicesContainer = document.querySelector(
-    `.summary-services-container`
+    `.summary-services-container`,
   );
 
 let currentIndex = 0;
@@ -59,7 +59,7 @@ document.querySelector(`.summary-plan`).innerHTML = `${dataObj.plan} (${
 })`;
 
 document.querySelector(
-  `.summary-plan-price`
+  `.summary-plan-price`,
 ).innerHTML = `${dataObj.planPrice}`;
 
 document.querySelector(`.total-price`).innerHTML = `${dataObj.planPrice}`;
@@ -85,6 +85,34 @@ nextButton[0].onclick = () => {
         backToPreviousPage();
       }
     }
+
+    // email and phone number validation
+    let emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (
+      !document
+        .querySelectorAll(`form`)[0]
+        .children[1].children[1].value.match(emailRegEx) &&
+      document.querySelectorAll(`form`)[0].children[1].children[1].value != ``
+    ) {
+      if (currentIndex > 0) {
+        backToPreviousPage();
+      }
+      document.querySelectorAll(`.invalid-text`)[0].classList.remove(`hidden`);
+    }
+
+    if (
+      document.querySelectorAll(`form`)[0].children[2].children[1].value
+        .length != 11 &&
+      document.querySelectorAll(`form`)[0].children[2].children[1].value != ``
+    ) {
+      if (currentIndex > 0) {
+        backToPreviousPage();
+      }
+      document.querySelectorAll(`.invalid-text`)[1].classList.remove(`hidden`);
+    }
+    //
+
     document.querySelectorAll(`form`)[0].children[i].children[1].oninput =
       () => {
         if (
@@ -99,6 +127,14 @@ nextButton[0].onclick = () => {
             .children[i].children[1].classList.remove(`border-strawberry-red`);
 
           requiredText[i].classList.add(`hidden`);
+        }
+        if (
+          document.querySelectorAll(`form`)[0].children[i].children[0]
+            .children[1]
+        ) {
+          document
+            .querySelectorAll(`form`)[0]
+            .children[i].children[0].children[1].classList.add(`hidden`);
         }
       };
   }
@@ -231,11 +267,11 @@ moAndYrCheckbox.parentElement.onclick = function () {
       if (planCards[i].classList.contains(`border-purplish-blue`)) {
         dataObj.planPrice = planCards[i].children[0].value;
         document.querySelector(
-          `.summary-plan-price`
+          `.summary-plan-price`,
         ).innerHTML = `${dataObj.planPrice}`;
 
         document.querySelector(
-          `.total-price`
+          `.total-price`,
         ).innerHTML = `${dataObj.planPrice}`;
 
         // the plan name (monthly / yearly) in step 4
@@ -300,11 +336,11 @@ moAndYrCheckbox.parentElement.onclick = function () {
       if (planCards[i].classList.contains(`border-purplish-blue`)) {
         dataObj.planPrice = planCards[i].children[0].value;
         document.querySelector(
-          `.summary-plan-price`
+          `.summary-plan-price`,
         ).innerHTML = `${dataObj.planPrice}`;
 
         document.querySelector(
-          `.total-price`
+          `.total-price`,
         ).innerHTML = `${dataObj.planPrice}`;
 
         // the plan name (monthly /yearly) in step 4
@@ -350,18 +386,18 @@ planCards.forEach((el) => {
     dataObj.planPrice = `${e.currentTarget.children[0].value}`;
 
     document.querySelector(
-      `.summary-plan-price`
+      `.summary-plan-price`,
     ).innerHTML = `${dataObj.planPrice}`;
 
     document.querySelector(`.total-price`).innerHTML = `${dataObj.planPrice}`;
 
     if (dataObj.planPeriod.monthly) {
       document.querySelector(
-        `.summary-plan`
+        `.summary-plan`,
       ).innerHTML = `${dataObj.plan} (Monthly)`;
     } else {
       document.querySelector(
-        `.summary-plan`
+        `.summary-plan`,
       ).innerHTML = `${dataObj.plan} (Yearly)`;
     }
   });

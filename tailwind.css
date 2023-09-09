@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.static {
+  position: static;
+}
+
 .absolute {
   position: absolute;
 }
@@ -636,6 +640,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-\[300px\] {
+  height: 300px;
 }
 
 .w-10 {
@@ -800,6 +808,18 @@ video {
 
 .bg-\[url\(\'\.\/images\/bg-sidebar-mobile\.svg\'\)\] {
   background-image: url('./images/bg-sidebar-mobile.svg');
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-local {
+  background-attachment: local;
 }
 
 .bg-no-repeat {
@@ -1275,8 +1295,52 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:static {
+    position: static;
+  }
+
+  .sm\:relative {
+    position: relative;
+  }
+
+  .sm\:left-auto {
+    left: auto;
+  }
+
+  .sm\:top-auto {
+    top: auto;
+  }
+
   .sm\:block {
     display: block;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:hidden {
+    display: none;
+  }
+
+  .sm\:h-\[568px\] {
+    height: 568px;
+  }
+
+  .sm\:h-7 {
+    height: 1.75rem;
+  }
+
+  .sm\:w-\[95\%\] {
+    width: 95%;
+  }
+
+  .sm\:w-7 {
+    width: 1.75rem;
+  }
+
+  .sm\:w-auto {
+    width: auto;
   }
 
   .sm\:basis-1\/3 {
@@ -1287,8 +1351,41 @@ video {
     flex-basis: 75%;
   }
 
+  .sm\:translate-x-0 {
+    --tw-translate-x: 0px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
+  }
+
+  .sm\:justify-normal {
+    justify-content: normal;
+  }
+
+  .sm\:gap-7 {
+    gap: 1.75rem;
+  }
+
   .sm\:rounded-2xl {
     border-radius: 1rem;
+  }
+
+  .sm\:bg-\[url\(\'\.\/images\/bg-sidebar-desktop\.svg\'\)\] {
+    background-image: url('./images/bg-sidebar-desktop.svg');
+  }
+
+  .sm\:bg-cover {
+    background-size: cover;
+  }
+
+  .sm\:bg-auto {
+    background-size: auto;
   }
 
   .sm\:p-0 {
@@ -1303,9 +1400,28 @@ video {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+
+  .sm\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .sm\:pb-0 {
+    padding-bottom: 0px;
+  }
+
+  .sm\:shadow-none {
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
 }
 
 @media (min-width: 768px) {
+  .md\:static {
+    position: static;
+  }
+
   .md\:left-1\/2 {
     left: 50%;
   }
@@ -1479,6 +1595,10 @@ video {
 
   .xs\:bg-\[url\(\'\.\/images\/bg-sidebar-desktop\.svg\'\)\] {
     background-image: url('./images/bg-sidebar-desktop.svg');
+  }
+
+  .xs\:bg-cover {
+    background-size: cover;
   }
 
   .xs\:px-0 {
